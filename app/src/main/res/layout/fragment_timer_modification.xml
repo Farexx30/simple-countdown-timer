@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.TimerModification">
+
+    <!-- TODO: Update blank fragment layout -->
+    <EditText
+        android:id="@+id/tens_of_minutes_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="80dp"
+        android:text="@string/zero"
+        android:textSize="48sp"
+        android:maxLength="1"
+        android:digits="0123456789"
+        android:inputType="number"
+        android:imeOptions="actionDone"/>
+
+
+
+    <EditText
+        android:id="@+id/units_of_minutes_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="40dp"
+        android:text="@string/zero"
+        android:textSize="48sp"
+        android:maxLength="1"
+        android:digits="0123456789"
+        android:inputType="number"
+        android:imeOptions="actionDone"/>
+
+    <TextView
+        android:id="@+id/colon_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/colon"
+        android:textSize="48sp" />
+
+    <EditText
+        android:id="@+id/tens_of_seconds_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="40dp"
+        android:text="@string/zero"
+        android:textSize="48sp"
+        android:maxLength="1"
+        android:digits="012345"
+        android:inputType="number"
+        android:imeOptions="actionDone"/>
+
+    <EditText
+        android:id="@+id/units_of_seconds_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="80dp"
+        android:text="@string/zero"
+        android:textSize="48sp"
+        android:maxLength="1"
+        android:digits="0123456789"
+        android:inputType="number"
+        android:imeOptions="actionDone"/>
+
+</FrameLayout>
