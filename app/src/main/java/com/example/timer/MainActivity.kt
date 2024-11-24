@@ -12,6 +12,7 @@ import com.example.timer.data.TimerData
 import com.example.timer.fragments.ITimerRun
 import com.example.timer.fragments.TimerModification
 import com.example.timer.fragments.TimerRun
+import com.example.timer.utils.commitWhenPossible
 
 class MainActivity : AppCompatActivity(), IMainActivityOnTimerFinish, IMainActivityChangeEnablement {
     private lateinit var countdownTimer: CountdownTimer
@@ -97,7 +98,7 @@ class MainActivity : AppCompatActivity(), IMainActivityOnTimerFinish, IMainActiv
         currentFragment = fragment
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
-            .commit()
+            .commitWhenPossible(lifecycle)
     }
 
 
