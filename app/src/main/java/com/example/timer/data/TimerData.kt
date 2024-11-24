@@ -1,4 +1,4 @@
-package com.example.timer
+package com.example.timer.data
 
 data class TimerData(
     var tensOfMinutes: String,

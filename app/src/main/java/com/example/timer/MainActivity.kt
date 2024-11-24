@@ -8,11 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import com.example.timer.data.TimerData
 import com.example.timer.fragments.ITimerRun
 import com.example.timer.fragments.TimerModification
 import com.example.timer.fragments.TimerRun
 
-class MainActivity : AppCompatActivity(), IMainActivityOnTimerFinish, IMainActivityChangeEnablence {
+class MainActivity : AppCompatActivity(), IMainActivityOnTimerFinish, IMainActivityChangeEnablement {
     private lateinit var countdownTimer: CountdownTimer
     private lateinit var startButton: Button
     private lateinit var pauseButton: Button
@@ -113,7 +114,7 @@ class MainActivity : AppCompatActivity(), IMainActivityOnTimerFinish, IMainActiv
         cancelButton.performClick()
     }
 
-    override fun changeStartEnablence(enablence: Boolean) {
-        startButton.isEnabled = enablence
+    override fun changeStartEnablement(enablement: Boolean) {
+        startButton.isEnabled = enablement
     }
 }

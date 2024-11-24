@@ -1,6 +1,7 @@
 package com.example.timer
 
 import android.os.SystemClock
+import com.example.timer.data.TimerData
 import com.example.timer.fragments.ITimerRun
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -41,32 +42,8 @@ class CountdownTimer(
                 {
                     timeLeftInMilliseconds -= 1000
 
-                    if (unitsOfSeconds > 0) {
-                        unitsOfSeconds--
-                    }
-                    else {
-                        unitsOfSeconds = 9
-
-                        if (tensOfSeconds > 0) {
-                            tensOfSeconds--
-                        }
-                        else {
-                            tensOfSeconds = 5
-
-                            if (unitsOfMinutes > 0) {
-                                unitsOfMinutes--
-                            }
-                            else {
-                                unitsOfMinutes = 9
-
-                                tensOfMinutes--
-                            }
-                        }
-                    }
-                    currentTime.tensOfMinutes = tensOfMinutes.toString()
-                    currentTime.unitsOfMinutes = unitsOfMinutes.toString()
-                    currentTime.tensOfSeconds = tensOfSeconds.toString()
-                    currentTime.unitsOfSeconds = unitsOfSeconds.toString()
+                    calculateCurrentTime()
+                    setCurrentTime()
                     updateUIWithTimeLeft(currentTime)
 
                     currentSecondTimeInMilliseconds = SystemClock.elapsedRealtime()
@@ -89,14 +66,46 @@ class CountdownTimer(
         remainingDelayInMilliseconds = 0L
     }
 
+    private fun calculateCurrentTime() {
+        if (unitsOfSeconds > 0) {
+            unitsOfSeconds--
+        }
+        else {
+            unitsOfSeconds = 9
+
+            if (tensOfSeconds > 0) {
+                tensOfSeconds--
+            }
+            else {
+                tensOfSeconds = 5
+
+                if (unitsOfMinutes > 0) {
+                    unitsOfMinutes--
+                }
+                else {
+                    unitsOfMinutes = 9
+
+                    tensOfMinutes--
+                }
+            }
+        }
+    }
+
+    private fun setCurrentTime() {
+        currentTime.tensOfMinutes = tensOfMinutes.toString()
+        currentTime.unitsOfMinutes = unitsOfMinutes.toString()
+        currentTime.tensOfSeconds = tensOfSeconds.toString()
+        currentTime.unitsOfSeconds = unitsOfSeconds.toString()
+    }
+
+    private fun updateUIWithTimeLeft(currentTime: TimerData) {
+        timerRunFragment.updateTimeLeft(currentTime)
+    }
+
     private fun onFinish() {
         timeLeftInMilliseconds = startTimeInMilliseconds
         remainingDelayInMilliseconds = 0L
 
         mainActivity.onFinish()
-    }
-
-    private fun updateUIWithTimeLeft(currentTime: TimerData) {
-        timerRunFragment.updateTimeLeft(currentTime)
     }
 }

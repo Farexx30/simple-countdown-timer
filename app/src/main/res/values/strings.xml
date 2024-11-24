@@ -7,4 +7,6 @@
     <string name="start">Start</string>
     <string name="pause">Pause</string>
     <string name="cancel">Cancel</string>
+    <string name="plus_sign">+</string>
+    <string name="minus_sign">-</string>
 </resources>

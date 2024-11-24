@@ -4,6 +4,6 @@ interface IMainActivityOnTimerFinish {
     fun onFinish()
 }
 
-interface IMainActivityChangeEnablence {
-    fun changeStartEnablence(enablence: Boolean)
+interface IMainActivityChangeEnablement {
+    fun changeStartEnablement(enablement: Boolean)
 }
